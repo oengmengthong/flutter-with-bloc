@@ -1,5 +1,16 @@
 # Project
 
+# flutter_contributors_app
+
+# Screenshots
+
+<table>
+  <tr>
+    <td><img src="flutter_contributors_app/Screenshot_20241028_112427.png" alt="Screenshot" width="200"/></td>
+    <td><img src="flutter_contributors_app/Screenshot_20241028_112441.png" alt="Screenshot" width="200"/></td>
+  </tr>
+</table>
+
 # timer_app
 
 # Screenshots
