@@ -8,7 +8,7 @@ import '../../models/expense_series.dart';
 class CategoryPieChart extends StatelessWidget {
   final List<ExpenseSeries> data;
 
-  CategoryPieChart({required this.data});
+  const CategoryPieChart({super.key, required this.data});
 
   @override
   Widget build(BuildContext context) {

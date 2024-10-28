@@ -4,9 +4,11 @@ import 'bloc/login_bloc.dart';
 import 'bloc/login_event.dart';
 import 'bloc/login_state.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,21 +24,23 @@ class LoginForm extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
+  LoginForm({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Login BLoC App')),
+      appBar: AppBar(title: const Text('Login BLoC App')),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: BlocListener<LoginBloc, LoginState>(
           listener: (context, state) {
             if (state.isSuccess) {
               ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text('Login Successful')),
+                const SnackBar(content: Text('Login Successful')),
               );
             } else if (state.isFailure) {
               ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text('Login Failed')),
+                const SnackBar(content: Text('Login Failed')),
               );
             }
           },
@@ -73,16 +77,16 @@ class LoginForm extends StatelessWidget {
                   );
                 },
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               BlocBuilder<LoginBloc, LoginState>(
                 builder: (context, state) {
                   return state.isSubmitting
-                      ? CircularProgressIndicator()
+                      ? const CircularProgressIndicator()
                       : ElevatedButton(
                           onPressed: () {
                             context.read<LoginBloc>().add(LoginSubmitted());
                           },
-                          child: Text('Login'),
+                          child: const Text('Login'),
                         );
                 },
               ),

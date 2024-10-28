@@ -4,9 +4,11 @@ import 'cubit/todos_cubit.dart';
 import 'models/todo.dart';
 import 'package:uuid/uuid.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,19 +22,21 @@ class MyApp extends StatelessWidget {
 
 class TodoPage extends StatelessWidget {
   final TextEditingController _todoController = TextEditingController();
-  final _uuid = Uuid();
+  final _uuid = const Uuid();
+
+  TodoPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Todo BLoC App')),
+      appBar: AppBar(title: const Text('Todo BLoC App')),
       body: Column(
         children: [
           Padding(
-            padding: EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16.0),
             child: TextField(
               controller: _todoController,
-              decoration: InputDecoration(labelText: 'Add a new task'),
+              decoration: const InputDecoration(labelText: 'Add a new task'),
               onSubmitted: (value) {
                 if (value.isNotEmpty) {
                   final todo = Todo(
@@ -64,7 +68,7 @@ class TodoPage extends StatelessWidget {
                         },
                       ),
                       trailing: IconButton(
-                        icon: Icon(Icons.delete),
+                        icon: const Icon(Icons.delete),
                         onPressed: () {
                           context.read<TodosCubit>().deleteTodo(todo.id);
                         },

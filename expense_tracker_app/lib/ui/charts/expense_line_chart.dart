@@ -8,7 +8,7 @@ import '../../models/expense_time_series.dart';
 class ExpenseLineChart extends StatelessWidget {
   final List<ExpenseTimeSeries> data;
 
-  ExpenseLineChart({required this.data});
+  const ExpenseLineChart({super.key, required this.data});
 
   @override
   Widget build(BuildContext context) {

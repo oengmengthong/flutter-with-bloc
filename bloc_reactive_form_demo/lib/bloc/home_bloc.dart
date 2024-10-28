@@ -8,10 +8,10 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   }
 
   Future<void> _onFetchData(FetchData event, Emitter<HomeState> emit) async {
-    emit(HomeLoading());
     try {
+      emit(HomeLoading());
       // Simulate network delay
-      await Future.delayed(Duration(seconds: 2));
+      await Future.delayed(const Duration(seconds: 2));
 
       // Mock data
       final data = List<String>.generate(20, (index) => 'Item ${index + 1}');

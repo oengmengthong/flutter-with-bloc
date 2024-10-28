@@ -6,11 +6,13 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   final CounterBloc _bloc = CounterBloc();
 
+  MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Text('Counter BLoC App')),
+        appBar: AppBar(title: const Text('Counter BLoC App')),
         body: Center(
           child: StreamBuilder<int>(
             stream: _bloc.counterStream,
@@ -18,14 +20,14 @@ class MyApp extends StatelessWidget {
             builder: (context, snapshot) {
               return Text(
                 'Counter: ${snapshot.data}',
-                style: TextStyle(fontSize: 24),
+                style: const TextStyle(fontSize: 24),
               );
             },
           ),
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: _bloc.increment,
-          child: Icon(Icons.add),
+          child: const Icon(Icons.add),
         ),
       ),
     );

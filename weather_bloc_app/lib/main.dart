@@ -22,7 +22,7 @@ Future<void> main() async {
 class MyApp extends StatelessWidget {
   final GetWeather getWeather;
 
-  MyApp({required this.getWeather});
+  const MyApp({super.key, required this.getWeather});
 
   @override
   Widget build(BuildContext context) {

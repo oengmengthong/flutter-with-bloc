@@ -22,7 +22,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       if (state.isValidEmail && state.isValidPassword) {
         emit(state.copyWith(isSubmitting: true));
         // Simulate a network call
-        await Future.delayed(Duration(seconds: 2));
+        await Future.delayed(const Duration(seconds: 2));
         emit(state.copyWith(isSubmitting: false, isSuccess: true));
       } else {
         emit(state.copyWith(isFailure: true));

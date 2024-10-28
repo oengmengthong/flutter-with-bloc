@@ -10,7 +10,7 @@ class Expense extends Equatable {
   final DateTime date;
   final String? notes;
 
-  Expense({
+  const Expense({
     this.id,
     required this.title,
     required this.amount,

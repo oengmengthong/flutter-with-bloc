@@ -8,7 +8,7 @@ import '../models/expense.dart';
 import 'package:intl/intl.dart';
 
 class AddExpensePage extends StatefulWidget {
-  AddExpensePage({super.key});
+  const AddExpensePage({super.key});
 
   @override
   _AddExpensePageState createState() => _AddExpensePageState();
@@ -22,7 +22,7 @@ class _AddExpensePageState extends State<AddExpensePage> {
   DateTime _date = DateTime.now();
   String _notes = '';
 
-  List<String> _categories = [
+  final List<String> _categories = [
     'Food',
     'Transport',
     'Entertainment',
@@ -35,30 +35,30 @@ class _AddExpensePageState extends State<AddExpensePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add Expense'),
+        title: const Text('Add Expense'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Form(
           key: _formKey,
           child: ListView(
             children: <Widget>[
               TextFormField(
-                decoration: InputDecoration(labelText: 'Title'),
+                decoration: const InputDecoration(labelText: 'Title'),
                 validator: (value) =>
                     value!.isEmpty ? 'Please enter a title' : null,
                 onSaved: (value) => _title = value!,
               ),
               TextFormField(
-                decoration: InputDecoration(labelText: 'Amount'),
+                decoration: const InputDecoration(labelText: 'Amount'),
                 keyboardType:
-                    TextInputType.numberWithOptions(decimal: true, signed: false),
+                    const TextInputType.numberWithOptions(decimal: true, signed: false),
                 validator: (value) =>
                     value!.isEmpty ? 'Please enter an amount' : null,
                 onSaved: (value) => _amount = double.parse(value!),
               ),
               DropdownButtonFormField(
-                decoration: InputDecoration(labelText: 'Category'),
+                decoration: const InputDecoration(labelText: 'Category'),
                 value: _category,
                 items: _categories
                     .map((cat) => DropdownMenuItem(
@@ -75,18 +75,18 @@ class _AddExpensePageState extends State<AddExpensePage> {
               ListTile(
                 contentPadding: EdgeInsets.zero,
                 title: Text('Date: ${DateFormat.yMMMd().format(_date)}'),
-                trailing: Icon(Icons.calendar_today),
+                trailing: const Icon(Icons.calendar_today),
                 onTap: _pickDate,
               ),
               TextFormField(
-                decoration: InputDecoration(labelText: 'Notes'),
+                decoration: const InputDecoration(labelText: 'Notes'),
                 maxLines: 3,
                 onSaved: (value) => _notes = value!,
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               ElevatedButton(
-                child: Text('Add Expense'),
                 onPressed: _submitForm,
+                child: const Text('Add Expense'),
               ),
             ],
           ),
@@ -99,7 +99,7 @@ class _AddExpensePageState extends State<AddExpensePage> {
     DateTime? datePicked = await showDatePicker(
       context: context,
       initialDate: _date,
-      firstDate: DateTime.now().subtract(Duration(days: 365)),
+      firstDate: DateTime.now().subtract(const Duration(days: 365)),
       lastDate: DateTime.now(),
     );
     if (datePicked != null) {

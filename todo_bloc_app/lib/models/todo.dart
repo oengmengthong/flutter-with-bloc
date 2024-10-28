@@ -5,7 +5,7 @@ class Todo extends Equatable {
   final String task;
   final bool isCompleted;
 
-  Todo({
+  const Todo({
     required this.id,
     required this.task,
     this.isCompleted = false,

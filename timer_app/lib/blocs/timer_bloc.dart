@@ -15,7 +15,7 @@ class TimerBloc extends Bloc<TimerEvent, TimerState> {
   TimerBloc({required Ticker ticker, required TimerRepository repository})
       : _ticker = ticker,
         _repository = repository,
-        super(TimerInitial()) {
+        super(const TimerInitial()) {
     on<TimerStarted>(_onStarted);
     on<TimerPaused>(_onPaused);
     on<TimerResumed>(_onResumed);
@@ -35,7 +35,7 @@ void _onStarted(TimerStarted event, Emitter<TimerState> emit) {
     add(TimerTicked(duration));
   });
 
-  emit(TimerRunInProgress(Duration.zero));
+  emit(const TimerRunInProgress(Duration.zero));
 }
 
   void _onPaused(TimerPaused event, Emitter<TimerState> emit) {
@@ -63,7 +63,7 @@ void _onStarted(TimerStarted event, Emitter<TimerState> emit) {
       await _repository.saveTimerEntry(entry);
     }
     _startTime = null;
-    emit(TimerInitial());
+    emit(const TimerInitial());
   }
 
   void _onTicked(TimerTicked event, Emitter<TimerState> emit) {
@@ -79,7 +79,7 @@ void _onStarted(TimerStarted event, Emitter<TimerState> emit) {
   Future<void> _onClearHistory(
       ClearTimerHistory event, Emitter<TimerState> emit) async {
     await _repository.clearHistory();
-    emit(TimerHistoryLoaded([]));
+    emit(const TimerHistoryLoaded([]));
   }
 
   @override
@@ -92,7 +92,7 @@ void _onStarted(TimerStarted event, Emitter<TimerState> emit) {
 class Ticker {
   Stream<int> tickUp() {
     return Stream.periodic(
-      Duration(milliseconds: 10),
+      const Duration(milliseconds: 10),
       (x) => x + 1,
     );
   }

@@ -1,6 +1,5 @@
 // lib/repositories/expense_repository.dart
 
-import 'package:sqflite/sqflite.dart';
 import '../models/expense.dart';
 import '../services/database_service.dart';
 

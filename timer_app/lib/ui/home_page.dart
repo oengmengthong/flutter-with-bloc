@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../blocs/timer_bloc.dart';
 import '../blocs/timer_event.dart';
-import '../blocs/timer_state.dart';
 import 'timer_controls.dart';
 import 'history_page.dart';
 
 class HomePage extends StatelessWidget {
-  HomePage({super.key});
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,16 +15,16 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black87,
-        title: Text('Stopwatch'),
+        title: const Text('Stopwatch'),
         centerTitle: true,
         actions: [
           IconButton(
-            icon: Icon(Icons.history),
+            icon: const Icon(Icons.history),
             onPressed: () {
               context.read<TimerBloc>().add(LoadTimerHistory());
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => HistoryPage()),
+                MaterialPageRoute(builder: (context) => const HistoryPage()),
               );
             },
           ),
@@ -37,17 +36,17 @@ class HomePage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
+              const Text(
                 'Elapsed Time',
                 style: TextStyle(
                   color: Colors.white70,
                   fontSize: 24,
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Text(
                 _formatDuration(duration),
-                style: TextStyle(
+                style: const TextStyle(
                   fontFamily: 'Digital',
                   fontSize: 80,
                   color: Colors.greenAccent,
@@ -64,7 +63,7 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: Column(
+      bottomNavigationBar: const Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           SafeArea(child: TimerControls()

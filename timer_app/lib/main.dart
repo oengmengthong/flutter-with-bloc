@@ -24,11 +24,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.black87,
         scaffoldBackgroundColor: Colors.black87,
-        appBarTheme: AppBarTheme(
+        appBarTheme: const AppBarTheme(
           backgroundColor: Colors.black87,
         ),
       ),
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
 }

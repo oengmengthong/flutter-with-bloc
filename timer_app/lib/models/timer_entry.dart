@@ -5,7 +5,7 @@ class TimerEntry extends Equatable {
   final DateTime? endTime;
   final Duration duration;
 
-  TimerEntry({
+  const TimerEntry({
     required this.startTime,
     this.endTime,
     required this.duration,

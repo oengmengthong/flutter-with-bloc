@@ -5,16 +5,18 @@ import 'bloc/home_event.dart';
 import 'bloc/home_state.dart';
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => HomeBloc()..add(FetchData()),
       child: Scaffold(
-        appBar: AppBar(title: Text('Home')),
+        appBar: AppBar(title: const Text('Home')),
         body: BlocBuilder<HomeBloc, HomeState>(
           builder: (context, state) {
             if (state is HomeLoading) {
-              return Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator());
             } else if (state is HomeLoaded) {
               return ListView.builder(
                 itemCount: state.data.length,
@@ -27,7 +29,7 @@ class HomeScreen extends StatelessWidget {
             } else if (state is HomeError) {
               return Center(child: Text(state.error));
             }
-            return Center(child: Text('Welcome to the Home Screen!'));
+            return const Center(child: Text('Welcome to the Home Screen!'));
           },
         ),
       ),

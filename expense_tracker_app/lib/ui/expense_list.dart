@@ -7,12 +7,12 @@ import 'expense_detail_page.dart';
 class ExpenseList extends StatelessWidget {
   final List<Expense> expenses;
 
-  ExpenseList({required this.expenses});
+  const ExpenseList({super.key, required this.expenses});
 
   @override
   Widget build(BuildContext context) {
     if (expenses.isEmpty) {
-      return Center(child: Text('No expenses added.'));
+      return const Center(child: Text('No expenses added.'));
     }
     return ListView.builder(
       itemCount: expenses.length,

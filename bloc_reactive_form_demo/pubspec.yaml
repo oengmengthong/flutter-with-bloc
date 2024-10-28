@@ -39,6 +39,7 @@ dependencies:
   equatable: ^2.0.5
   reactive_forms: ^17.0.1
 
+  bloc: any
 dev_dependencies:
   flutter_test:
     sdk: flutter

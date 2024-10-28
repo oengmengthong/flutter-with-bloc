@@ -8,36 +8,35 @@ import '../models/expense.dart';
 import '../models/expense_series.dart';
 import '../models/expense_time_series.dart';
 import 'charts/category_pie_chart.dart';
-import 'charts/expense_bar_chart.dart';
 import 'charts/expense_line_chart.dart';
 import 'package:community_charts_flutter/community_charts_flutter.dart' as charts;
 
 class AnalysisPage extends StatelessWidget {
-  AnalysisPage({super.key});
+  const AnalysisPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Expense Analysis'),
+        title: const Text('Expense Analysis'),
       ),
       body: BlocBuilder<ExpenseBloc, ExpenseState>(
         builder: (context, state) {
           if (state is ExpenseLoading) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           } else if (state is ExpenseLoaded) {
             final expenses = state.expenses;
             return SingleChildScrollView(
               child: Column(
                 children: [
-                  SizedBox(height: 20),
-                  Text(
+                  const SizedBox(height: 20),
+                  const Text(
                     'Expenses by Category',
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(height: 300, child: _buildCategoryPieChart(expenses)),
-                  SizedBox(height: 20),
-                  Text(
+                  const SizedBox(height: 20),
+                  const Text(
                     'Expenses Over Time',
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
@@ -46,7 +45,7 @@ class AnalysisPage extends StatelessWidget {
               ),
             );
           } else {
-            return Center(child: Text('No data available'));
+            return const Center(child: Text('No data available'));
           }
         },
       ),
@@ -55,13 +54,13 @@ class AnalysisPage extends StatelessWidget {
 
   Widget _buildCategoryPieChart(List<Expense> expenses) {
     Map<String, double> categoryData = {};
-    expenses.forEach((expense) {
+    for (var expense in expenses) {
       categoryData.update(
         expense.category,
         (value) => value + expense.amount,
         ifAbsent: () => expense.amount,
       );
-    });
+    }
 
     final data = categoryData.entries.map((entry) {
       return ExpenseSeries(
@@ -76,14 +75,14 @@ class AnalysisPage extends StatelessWidget {
 
   Widget _buildExpenseLineChart(List<Expense> expenses) {
     Map<DateTime, double> dateData = {};
-    expenses.forEach((expense) {
+    for (var expense in expenses) {
       final date = DateTime(expense.date.year, expense.date.month, expense.date.day);
       dateData.update(
         date,
         (value) => value + expense.amount,
         ifAbsent: () => expense.amount,
       );
-    });
+    }
 
     final data = dateData.entries.map((entry) {
       return ExpenseTimeSeries(

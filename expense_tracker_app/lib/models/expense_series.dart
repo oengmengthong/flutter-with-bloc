@@ -9,7 +9,7 @@ class ExpenseSeries extends Equatable {
   final double amount;
   final charts.Color barColor;
 
-  ExpenseSeries({
+  const ExpenseSeries({
     required this.category,
     required this.amount,
     required this.barColor,

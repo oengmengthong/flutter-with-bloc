@@ -6,41 +6,43 @@ import '../blocs/weather_bloc.dart';
 class WeatherPage extends StatelessWidget {
   final TextEditingController _cityController = TextEditingController();
 
+  WeatherPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Weather BLoC App')),
+      appBar: AppBar(title: const Text('Weather BLoC App')),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
             TextField(
               controller: _cityController,
-              decoration: InputDecoration(labelText: 'Enter City Name'),
+              decoration: const InputDecoration(labelText: 'Enter City Name'),
               onSubmitted: (value) {
                 if (value.isNotEmpty) {
                   context.read<WeatherBloc>().add(GetWeatherEvent(value));
                 }
               },
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             // BlocBuilder
             BlocBuilder<WeatherBloc, WeatherState>(
               builder: (context, state) {
                 if (state is WeatherInitial) {
-                  return Text('Please enter a city name');
+                  return const Text('Please enter a city name');
                 } else if (state is WeatherLoading) {
-                  return CircularProgressIndicator();
+                  return const CircularProgressIndicator();
                 } else if (state is WeatherLoaded) {
                   return Column(
                     children: [
                       Text(
                         state.weather.cityName,
-                        style: TextStyle(fontSize: 24),
+                        style: const TextStyle(fontSize: 24),
                       ),
                       Text(
                         '${state.weather.temperature} °C',
-                        style: TextStyle(fontSize: 48),
+                        style: const TextStyle(fontSize: 48),
                       ),
                     ],
                   );
@@ -66,11 +68,11 @@ class WeatherPage extends StatelessWidget {
                     children: [
                       Text(
                         weather.cityName,
-                        style: TextStyle(fontSize: 24),
+                        style: const TextStyle(fontSize: 24),
                       ),
                       Text(
                         '${weather.temperature} °C',
-                        style: TextStyle(fontSize: 48),
+                        style: const TextStyle(fontSize: 48),
                       ),
                     ],
                   );

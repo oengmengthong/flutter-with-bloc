@@ -5,13 +5,13 @@ import '../blocs/timer_state.dart';
 import '../blocs/timer_event.dart';
 
 class TimerControls extends StatelessWidget {
-  TimerControls({super.key});
+  const TimerControls({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.black87,
-      padding: EdgeInsets.symmetric(vertical: 20.0),
+      padding: const EdgeInsets.symmetric(vertical: 20.0),
       child: BlocBuilder<TimerBloc, TimerState>(
         builder: (context, state) {
           return _mapStateToActionButtons(context, state);
@@ -26,7 +26,7 @@ class TimerControls extends StatelessWidget {
     if (state is TimerInitial || state is TimerHistoryLoaded) {
       return Center(
         child: IconButton(
-          icon: Icon(Icons.play_circle_fill),
+          icon: const Icon(Icons.play_circle_fill),
           color: Colors.greenAccent,
           iconSize: 80,
           onPressed: () => timerBloc.add(TimerStarted()),
@@ -37,13 +37,13 @@ class TimerControls extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           IconButton(
-            icon: Icon(Icons.pause_circle_filled),
+            icon: const Icon(Icons.pause_circle_filled),
             color: Colors.yellowAccent,
             iconSize: 80,
             onPressed: () => timerBloc.add(TimerPaused()),
           ),
           IconButton(
-            icon: Icon(Icons.stop_circle_outlined),
+            icon: const Icon(Icons.stop_circle_outlined),
             color: Colors.redAccent,
             iconSize: 80,
             onPressed: () => timerBloc.add(TimerReset()),
@@ -55,13 +55,13 @@ class TimerControls extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           IconButton(
-            icon: Icon(Icons.play_circle_fill),
+            icon: const Icon(Icons.play_circle_fill),
             color: Colors.greenAccent,
             iconSize: 80,
             onPressed: () => timerBloc.add(TimerResumed()),
           ),
           IconButton(
-            icon: Icon(Icons.stop_circle_outlined),
+            icon: const Icon(Icons.stop_circle_outlined),
             color: Colors.redAccent,
             iconSize: 80,
             onPressed: () => timerBloc.add(TimerReset()),

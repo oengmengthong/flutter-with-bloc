@@ -9,11 +9,10 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
 
   Future<void> _onRegisterSubmitted(
       RegisterSubmitted event, Emitter<RegisterState> emit) async {
-    emit(RegisterLoading());
     try {
       emit(RegisterLoading());
       // Simulate API call
-      await Future.delayed(Duration(seconds: 2));
+      await Future.delayed(const Duration(seconds: 2));
 
       // Mock success response
       if (event.formData['email'] == 'fail@example.com') {
