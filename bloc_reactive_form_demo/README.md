@@ -1,15 +1,10 @@
 # bloc_reactive_form_demo
 
-this demo show you how to:
-- register reactive form
-- validate input field
-- show validate error message
-- form listener
-- register bloc
-- bloc listener
-- init event bloc
-- submit event
+# Screenshots
 
-![Screenshot](Screenshot_20241028_095928.png)
-
-![Screenshot](Screenshot_20241028_100032.png)
+<table>
+  <tr>
+    <td><img src="Screenshot_20241028_095928.png" alt="Screenshot 1" width="300"/></td>
+    <td><img src="Screenshot_20241028_100032.png" alt="Screenshot 2" width="300"/></td>
+  </tr>
+</table>

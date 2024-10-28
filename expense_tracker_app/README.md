@@ -1,16 +1,18 @@
 # expense_tracker_app
 
-A new Flutter project.
+# Screenshots
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<table>
+  <tr>
+    <td><img src="Screenshot_20241028_101346.png" alt="Screenshot" width="200"/></td>
+    <td><img src="Screenshot_20241028_101355.png" alt="Screenshot" width="200"/></td>
+    <td><img src="Screenshot_20241028_101511.png" alt="Screenshot" width="200"/></td>
+    <td><img src="Screenshot_20241028_101521.png" alt="Screenshot" width="200"/></td>
+  </tr>
+  <tr>
+    <td><img src="Screenshot_20241028_101529.png" alt="Screenshot" width="200"/></td>
+    <td><img src="Screenshot_20241028_101537.png" alt="Screenshot" width="200"/></td>
+    <td><img src="Screenshot_20241028_101544.png" alt="Screenshot" width="200"/></td>
+    <td></td>
+  </tr>
+</table>
