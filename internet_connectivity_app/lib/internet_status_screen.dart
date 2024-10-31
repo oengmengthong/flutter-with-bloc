@@ -5,8 +5,10 @@ import 'internet_event.dart';
 import 'internet_state.dart';
 
 class InternetStatusScreen extends StatefulWidget {
+  const InternetStatusScreen({super.key});
+
   @override
-  _InternetStatusScreenState createState() => _InternetStatusScreenState();
+  State<InternetStatusScreen> createState() => _InternetStatusScreenState();
 }
 
 class _InternetStatusScreenState extends State<InternetStatusScreen>
